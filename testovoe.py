@@ -20,11 +20,19 @@ def kiski_detection():
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, 'Привет! Я помогу отличить кота от хлеба! Объект перед тобой квадратный?')
+<<<<<<< HEAD
 @bot.message_handler(content_types=["photo"])
 def piski(message):
     print("gg")
     bot.download_file(message.from_user.id)
 
+=======
+@bot.message_handler(content_types=['images'])
+def recognize_kittens(message, image):
+    print("gg")
+    #тут будет распознование кисок
+ #   bot.send_photo(message.from_user.id,'https://opencv-python-tutroals.readthedocs.io/en/latest/_images/face.jpg')
+>>>>>>> c19e4941f415a5d48802728c62725ab3f1e83f00
 @bot.message_handler(content_types=['text'])
 def start(message):
     if message.text.upper() == "ДА":
@@ -32,13 +40,13 @@ def start(message):
         bot.send_photo(message.from_user.id, 'https://opencv-python-tutroals.readthedocs.io/en/latest/_images/face.jpg')
         message.text = None
         if message.text.upper == "ДА":
-            bot.send_message(message.from_user.id, "Это кот  а не хлеб мудило")
+            bot.send_message(message.from_user.id, "Это кот , а не хлеб не ешь его ")
 
         elif message.text.upper() == "НЕТ":
             bot.send_message(message.from_user.id, "Нет, ты реально не отличаешь хлеб от кота? Ешь его!")
 
 
     elif message.text.upper() == "НЕТ":
-        bot.send_message(message.from_user.id, "Это кот а не злеб ешь его")
+        bot.send_message(message.from_user.id, "Это кот а не хлеб ешь его")
 
 bot.polling()
